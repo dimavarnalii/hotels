@@ -13,6 +13,8 @@
 </head>
 <body>
 
+<!--HEADER-->
+
 <nav class="navbar navbar navbar-expand-md navbar-light bg-light ns" id="for-header">
     <a class="navbar-brand font-weight-bold ml-5" href="/"><h1><span>Hotel</span><span class="text-warning">zzz</span>
     </h1></a>
@@ -54,6 +56,8 @@
     </div>
 </nav>
 
+<!--HEADER END-->
+
 <div class="py-5 text-center ">
     <div class="container loginBox  ">
         <div>
@@ -64,26 +68,29 @@
                             <p class="h6">Change your login:</p>
                             <div class="col-md-12 justify-content-center align-items-center row">
                                 <div class="mt-2 col-lg-4"><input class="form-control input-lg" type="text"
-                                                         name="username"
-                                                         placeholder="Login" th:value="${user.username}"></div>
+                                                                  name="username"
+                                                                  placeholder="Login" th:value="${user.username}"></div>
                             </div>
                             <br>
                             <p class="h6">Change your name:</p>
                             <div class="col-md-12 justify-content-center align-items-center row">
                                 <div class="mt-2 col-lg-4"><input class="form-control input-lg" type="text" name="name"
-                                                         placeholder="Name" th:value="${user.name}"></div>
+                                                                  placeholder="Name" th:value="${user.name}"></div>
                             </div>
                             <br>
                             <p class="h6">Change your surname:</p>
                             <div class="col-md-12 justify-content-center align-items-center row">
-                                <div class="mt-2 col-lg-4"><input class="form-control input-lg" type="text" name="surname"
-                                                         placeholder="Surname" th:value="${user.surname}"></div>
+                                <div class="mt-2 col-lg-4"><input class="form-control input-lg" type="text"
+                                                                  name="surname"
+                                                                  placeholder="Surname" th:value="${user.surname}">
+                                </div>
                             </div>
                             <br>
                             <p class="h6">Change your email:</p>
                             <div class="col-md-12 justify-content-center align-items-center row">
-                                <div class="mt-2 col-lg-4"><input class="form-control input-lg" type="email" name="email"
-                                                         placeholder="Email" th:value="${user.email}"></div>
+                                <div class="mt-2 col-lg-4"><input class="form-control input-lg" type="email"
+                                                                  name="email"
+                                                                  placeholder="Email" th:value="${user.email}"></div>
                             </div>
                             <br>
                             <input class="btn btn-primary" type="submit" value="Submit!">

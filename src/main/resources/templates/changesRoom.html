@@ -2,23 +2,88 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Changes</title>
+    <link href="/css/div-style.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
 <body>
-<p> Room fields:</p>
-<form th:action="@{/update/room/}+ ${room.id}" method="post">
-    <p>Price: </p>
-    <input type="text" name="prices" placeholder="Enter price of your room 1" th:value="${room.price}"><br>
-    <p>Roominess</p>
-    <input type="text" name="rooms" placeholder="Enter count of your room 1" th:value="${room.roominess}"><br>
-    <div><select class="select" name="type">
-        <option value="TYPE_ECONOM">Econom</option>
-        <option value="TYPE_STANDART">Standart</option>
-        <option value="TYPE_LUXE">Luxe</option>
-    </select>
-    </div>
-    <input type="submit" value="change">
-</form>
 
+<!--HEADER-->
+<nav class="navbar navbar navbar-expand-md navbar-light bg-light ns" id="for-header">
+    <a class="navbar-brand font-weight-bold ml-5" href="/"><h1><span>Hotel</span><span class="text-warning">zzz</span>
+    </h1></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link font-weight-bold ml-5" href="/"><h4>Home</h4> <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <div th:if="${user!=null}">
+                    <div th:if="${user.role==user_role}"><h4><a class="nav-link  ml-5" href="/user">User
+                        cabinet <span class="sr-only">(current)</span></a></h4>
+                    </div>
+                    <div th:if="${user.role==admin_role}"><h4><a class="nav-link  ml-5" href="/admin">Admin
+                        cabinet <span class="sr-only">(current)</span></a></h4>
+                    </div>
+                    <div th:if="${user.role==hoteladmin_role}"><h4><a class="nav-link ml-5"
+                                                                      href="/hoteladmin">Hotel admin cabinet <span
+                            class="sr-only">(current)</span></a></h4>
+                    </div>
+                </div>
+            </li>
+        </ul>
+
+        <div class="mr-3" th:if="${user==null}"><h5><a href="/login">sing in</a></h5></div>
+        <div class="mr-3" th:if="${user==null}"><h5><a href="/registration">sing up</a></h5></div>
+        <div class="mr-3" th:if="${user!=null}"><h5><span th:text="${user.username}"></span></h5></div>
+        <div class="mr-3" th:if="${user}!=null">
+            <form th:action="@{/logout}" method="get">
+                <button class="btn btn-primary" type="submit" value="">Logout</button>
+            </form>
+
+        </div>
+    </div>
+</nav>
+<!--HEADER END-->
+<div class="container">
+    <div class="container row py-5">
+        <div class="container col-md-5 ">
+            <div class="card bg-light p-3">
+                <div class="text-center">
+                    <p> Room fields</p>
+                    <form th:action="@{/update/room/}+ ${room.id}" method="post">
+                        <p>Price: </p>
+                        <div class="mt-2"><input class="form-control input-lg" type="text" name="prices"
+                                                 placeholder="Enter price of your room 1"
+                                                 th:value="${room.price}"><br></div>
+                        <p>Number of rooms:</p>
+                        <div class="mt-2"><input class="form-control input-lg" type="text" name="rooms"
+                                                 placeholder="Enter count of your room 1"
+                                                 th:value="${room.roominess}"><br></div>
+                        <div><select class="select" name="type">
+                            <option value="TYPE_ECONOM">Econom</option>
+                            <option value="TYPE_STANDART">Standart</option>
+                            <option value="TYPE_LUXE">Luxe</option>
+                            <br>
+                        </select>
+                        </div>
+                        <input class="btn btn-primary" type="submit" value="change">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
 </body>
 </html>
